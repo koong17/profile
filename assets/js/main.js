@@ -289,9 +289,9 @@
 	});
 
 	var smokyBG = $('#smoky-bg').waterpipe({
-		gradientStart: '#51ff00',
-		gradientEnd: '#001eff',
-		smokeOpacity: 0.1,
+		gradientStart: '#dddddd',
+		gradientEnd: '#51ff00',
+		smokeOpacity: 0.05,
 		smokeSize: 100,
 		numCircles: 1,
 		maxMaxRad: 'auto',
