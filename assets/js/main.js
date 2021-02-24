@@ -311,7 +311,7 @@
 	/**
 	 * particlesJs
 	 */
-	particlesJS("particles-js", {
+	var particle = particlesJS("particles-js", {
 		"particles": {
 			"number": {
 				"value": 100,
