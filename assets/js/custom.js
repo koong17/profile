@@ -25,6 +25,7 @@ function sendEmail() {
 
     data.formDataNameOrder = '["name","message","email"]';
 
+    document.getElementById("lds").style.display = "block";
     fetch("https://script.google.com/macros/s/AKfycbzK6EmKaCoIcfH9_8i3WJT35xRNU9q0GpK0x0Hd0s5gADhkKqQ/exec", {
         method: "POST",
         headers: {
@@ -32,17 +33,19 @@ function sendEmail() {
         },
         body: encoded
     }).then((response) => response.json())
-        .then((data) => {
-            var res = data.result;
-            if (res === "success") {
-                name.value = "";
-                message.value = "";
-                email.value = "";
-                alert("메일을 성공적으로 보냈습니다.");
-            } else {
-                alert("서버의 문제로 메일을 보내지 못했습니다.");
-            }
-        });
+    .then((data) => {
+        var res = data.result;
+        if (res === "success") {
+            name.value = "";
+            message.value = "";
+            email.value = "";
+            alert("메일을 성공적으로 보냈습니다.");
+            document.getElementById("lds").style.display = "none";
+        } else {
+            alert("서버의 문제로 메일을 보내지 못했습니다.");
+            document.getElementById("lds").style.display = "none";
+        }
+    });
 }
 
 function checkEmail(str) {

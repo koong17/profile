@@ -14,6 +14,8 @@
 		<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
 		<link rel="stylesheet" type="text/css" href="assets/vendors/wow/animate.css">
+		<!-- custom -->
+		<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
         <!-- dev icons-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.9.0/devicon.min.css">
 		<!-- App & fonts-->
@@ -26,7 +28,7 @@
 	
 	<body>
 		<div class="page-wrap" id="root">
-			
+			<div class="lds" id="lds"><div class="lds-center"><div class="lds-heart"><div></div></div></div></div>
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="container">
@@ -49,7 +51,9 @@
 									</li>
 									<li><a href="#id-5">Travel</a>
 									</li>
-									<li><a href="#id-6">Contact</a>
+									<li><a href="#id-6">Guestbook</a>
+									</li>
+									<li><a href="#id-7">Contact</a>
 									</li>
 								</ul><!-- onepage-menu -->
 								
@@ -65,24 +69,30 @@
 			<div class="awe-content">
 				
 				<!-- hero -->
-				<section class="hero awe-text-center" id="id-1">
+				<section class="hero awe-text-center" id="id-1"  style="background-image:url(&quot;assets/img/bg/1.jpg&quot;);background-size:100vw;">
 					<div class="awe-overlay"></div>
-					<div class="hero__wrapper">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-2 ">
-									<h1 class="hero__title">KANG SUAH
-									</h1>
-									<p class="hero__text">Creative web developer</p><a class="a-btn btn-first" href="#id-2">Read more</a><a class="a-btn btn-second" href="javascript:findLuck()">오늘의 격언</a>
+					<div class="row">
+						<div class="hero__wrapper">
+							<h1 class="hero__title">KANG SUAH
+							</h1>
+							<p class="hero__text">Creative web developer</p><a class="a-btn btn-first" href="#id-2">Read more</a><a class="a-btn btn-second" href="javascript:findLuck()">오늘의 격언</a>
+							<!-- <div class="container">
+								<div class="row">
+									<div class="col-md-12 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-2 ">
+									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
+
 					</div>
 					
 					<!-- smoky -->
-					<div class="smoky" id="smoky-bg">
+					<!-- <div class="smoky" id="smoky-bg">
 						<canvas>Your browser does not support HTML5 canvas.</canvas>
-					</div><!-- End / smoky -->
+					</div> -->
+					<!-- End / smoky -->
+					<div class="smoky" id="particles-js"></div>
+
 					
 				</section><!-- End / hero -->
 				
@@ -150,7 +160,7 @@
 								<div class="progress">
 									<h5 class="progress__title">Java</h5>
 									<div class="progress__wrap">
-										<div class="progress__bar" data-progress-percent="60" data-timing="ease" data-duration="1000" data-delay="500"><span class="progress__number">60%</span></div>
+										<div class="progress__bar" data-progress-percent="90" data-timing="ease" data-duration="1000" data-delay="500"><span class="progress__number">60%</span></div>
 									</div>
 								</div><!-- End / progress -->
 								
@@ -159,7 +169,7 @@
 								<div class="progress">
 									<h5 class="progress__title">Javascript</h5>
 									<div class="progress__wrap">
-										<div class="progress__bar" data-progress-percent="40" data-timing="ease" data-duration="1000" data-delay="500"><span class="progress__number">40%</span></div>
+										<div class="progress__bar" data-progress-percent="60" data-timing="ease" data-duration="1000" data-delay="500"><span class="progress__number">40%</span></div>
 									</div>
 								</div><!-- End / progress -->
 								
@@ -170,7 +180,7 @@
 								<div class="progress">
 									<h5 class="progress__title">C#</h5>
 									<div class="progress__wrap">
-										<div class="progress__bar" data-progress-percent="60" data-timing="ease" data-duration="1000" data-delay="500"><span class="progress__number">60%</span></div>
+										<div class="progress__bar" data-progress-percent="70" data-timing="ease" data-duration="1000" data-delay="500"><span class="progress__number">60%</span></div>
 									</div>
 								</div><!-- End / progress -->
 								
@@ -197,7 +207,7 @@
 						<!-- title -->
 						<div class="title">
 							<h2 class="title__title">Additional Skills
-								<p class="title__text">배우고 성장하는 현재진행형</p>
+								<p class="title__text">배우고 성장하는 현재진행형 인간</p>
 							</h2>
 						</div><!-- End / title -->
 						
@@ -208,52 +218,152 @@
 								<li><a href="#tab1"><i class="fa fa-code"></i><span class="ac-tab__title">Back-end</span></a></li>
 								<li><a href="#tab2"><i class="fa fa-laptop"></i><span class="ac-tab__title">Front-end</span></a></li>
 								<li><a href="#tab3"><i class="fa fa-certificate"></i><span class="ac-tab__title">Certification</span></a></li>
-								<li><a href="#tab4"><i class="fa fa-assistive-listening-systems"></i><span class="ac-tab__title">Communication</span></a></li>
+								<li><a href="#tab4"><i class="fa fa-thumbs-up"></i><span class="ac-tab__title">Advantage</span></a></li>
 							</ul>
 							<div class="ac-tab__content">
 								
 								<!-- ac-tab__panel -->
 								<div class="ac-tab__panel" id="tab1">
-									<!-- <div class="col-lg-4 ">
-										<div><img src="assets/img/skill/skill-1.jpg"/></div>
-									</div> -->
-									<div class="col-lg-12 ">
-										<p class="tab_panel__content">Java, C#</p>
-										<i class="devicon-java-plain"></i>
-										<i class="devicon-csharp-plain"></i>
+									<div class="row">
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="devicon-java-plain"></i></div>
+												<h3 class="service__title">Java</h3>
+												<p class="service__text">Spring, Spring Boot, Mybatis 실무에 적용 가능. JUnit을 이용한 테스트 케이스 작성.</p>
+											</div><!-- End / service -->
+											
+										</div>
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="devicon-csharp-plain"></i></div>
+												<h3 class="service__title">C#</h3>
+												<p class="service__text">WPF기반 MVVM 패턴의 어플리케이션 제작 가능</p>
+											</div><!-- End / service -->
+											
+										</div>
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="devicon-postgresql-plain"></i></div>
+												<h3 class="service__title">PostgreSQL</h3>
+												<p class="service__text"> 기초 실무에 쓰이는 쿼리 작성 가능</p>
+											</div><!-- End / service -->
+											
+										</div>
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="devicon-oracle-plain"></i></div>
+												<h3 class="service__title">Oracle</h3>
+												<p class="service__text"> 기초 실무에 쓰이는 쿼리 작성 가능</p>
+											</div><!-- End / service -->
+											
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><img src="assets/img/influxdb.png"></div>
+												<h3 class="service__title">InfluxDB</h3>
+												<p class="service__text">시계열 데이터 베이스가 무엇인지 알고 기본적인 쿼리 작성 가능</p>
+											</div><!-- End / service -->
+											
+										</div>
 									</div>
 								</div><!-- End / ac-tab__panel -->
 								
 								
 								<!-- ac-tab__panel -->
 								<div class="ac-tab__panel" id="tab2">
-									<!-- <div class="col-lg-4 ">
-										<div><img src="assets/img/skill/skill-2.jpg"/></div>
-									</div> -->
-									<div class="col-lg-12 ">
-										<p class="tab_panel__content">Javascript, Kendo UI</p>
+									<div class="row">
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="devicon-javascript-plain"></i></div>
+												<h3 class="service__title">Javascript</h3>
+												<p class="service__text">기초 수준 활용 가능</p>
+											</div><!-- End / service -->
+											
+										</div>
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><img src="assets/img/kendo.png"></div>
+												<h3 class="service__title">Kendo UI</h3>
+												<p class="service__text">공장 모니터링 시스템 제작 경험</p>
+											</div><!-- End / service -->
+											
+										</div>
 									</div>
 								</div><!-- End / ac-tab__panel -->
 								
 								
 								<!-- ac-tab__panel -->
 								<div class="ac-tab__panel" id="tab3">
-									<!-- <div class="col-lg-4 ">
-										<div><img src="assets/img/skill/skill-1.jpg"/></div>
-									</div> -->
-									<div class="col-lg-12 ">
-										<p class="tab_panel__content">정보처리기사 자격증</p>
+									<div class="row">
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><img src="assets/img/hrdCircle.png"></div>
+												<h3 class="service__title">정보처리기사</h3>
+												<p class="service__text">2019/11/22</p>
+											</div><!-- End / service -->
+											
+										</div>
 									</div>
 								</div><!-- End / ac-tab__panel -->
 								
 								
 								<!-- ac-tab__panel -->
 								<div class="ac-tab__panel" id="tab4">
-									<!-- <div class="col-lg-4 ">
-										<div><img src="assets/img/skill/skill-2.jpg"/></div>
-									</div> -->
-									<div class="col-lg-12 ">
-										<p class="tab_panel__content">소통 좋아함. 금방 빨리 배움. 새로운거 써보는거 좋아함.</p>
+									<div class="row">
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="fa fa-comments"></i></div>
+												<h3 class="service__title">조직적응력</h3>
+											</div><!-- End / service -->
+											
+										</div>
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="fa fa-tachometer"></i></div>
+												<h3 class="service__title">빠른 습득력</h3>
+											</div><!-- End / service -->
+											
+										</div>
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="fa fa-lightbulb-o"></i></div>
+												<h3 class="service__title">호기심</h3>
+											</div><!-- End / service -->
+											
+										</div>
+										<div class="col-lg-3 ">
+											
+											<!-- service -->
+											<div class="service">
+												<div class="service__icon"><i class="fa fa-puzzle-piece"></i></div>
+												<h3 class="service__title">퍼즐 덕후</h3>
+											</div><!-- End / service -->
+											
+										</div>
 									</div>
 								</div><!-- End / ac-tab__panel -->
 								
@@ -305,22 +415,19 @@
 						</div><!-- End / title -->
 						
 						<div class="col-lg-4 ">
-							
 							<!-- service -->
 							<div class="service wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="20" data-wow-iteration="1">
 								<div class="service__icon"><img src="assets/img/infotrol.gif"></div>
 								<h3 class="service__title">Infotrol Technology</h3>
 								<p class="service__text">2019/12 - 2020/10</p>
 							</div><!-- End / service -->
-							
 						</div>
 						<div class="col-lg-8 ">
-							
 							<!-- service -->
 							<div class="service wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="20" data-wow-iteration="1">
 								<h3 class="service__title awe-text-left">Web Developer</h3>
 								<ul class="awe-text-left">
-									<li><i class="fa fa-code"></i> 기술 스택 : Java, Spring Boot, C#, PostgreSQL, InfluxDB, JUnit4, Kendo UI</li>
+									<li><i class="fa fa-code"></i> 기술 스택 : Java, Spring Boot, Javascript, C#, PostgreSQL, InfluxDB, JUnit4, Kendo UI</li>
 									<li><i class="fa fa-check"></i> Java, Spring framework 를 기반으로 한 데이터 모니터링 웹 페이지 제작 프로젝트</li>
 									<li><i class="fa fa-check"></i> Kendo UI를 기반으로 MVVM 패턴을 활용해 view의 의존성을 낮춤</li>
 									<li><i class="fa fa-check"></i> C#으로 공장 기기들의 실시간 데이터를 수집하고 확인할 수 있는 웹 서비스 띄움</li>
@@ -328,8 +435,8 @@
 								</ul>
 								<!-- <p class="service__text">Maecenas lorem ex, euismod eget pulvinar non, facilisis ut leo. Quisque placerat purus in neque effi</p> -->
 							</div><!-- End / service -->
-							
 						</div>
+
 					</div>
 				</section>
 				<!-- End / Section -->
@@ -689,10 +796,96 @@
 					</div>
 				</section>
 				<!-- End / Section -->
+				
+				
+				<!-- Section -->
+				<section class="awe-section awe-text-center" id="id-6">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">
+								
+								<!-- title -->
+								<div class="title">
+									<h2 class="title__title">Guestbook
+										<p class="title__text">남기고 싶은 말을 자유롭게 남겨주세요 😊</p>
+									</h2>
+								</div><!-- End / title -->
+								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="form-wrapper">
+									
+									<!-- form-item -->
+									<div class="form-item">
+										<label class="form__label fa fa-user"> </label>
+										<input class="form-control" type="text" placeholder="Name"/>
+									</div><!-- End / form-item -->
+									
+									
+									<!-- form-item -->
+									<div class="form-item">
+										<label class="form__label fa fa-header"> </label>
+										<input class="form-control" type="text" placeholder="Subject"/>
+									</div><!-- End / form-item -->
+									
+									
+									<!-- form-item -->
+									<div class="form-item">
+										<label class="form__label fa fa-comments-o"> </label>
+										<textarea class="form-control" id="sMessage" placeholder="Message" rows="5"></textarea>
+									</div><!-- End / form-item -->
+									
+									
+									<!-- form-item -->
+									<div class="form-item awe-text-center">
+										<a class="awe-btn awe-btn--pill" href="javascript:alert('구현 예정 기능입니다');">방명록 남기기
+										</a>
+									</div><!-- End / form-item -->
+									
+								</div>
+							</div>
+							<div class="col-lg-9">
+								<!-- swiper__module swiper-container -->
+								<div class="swiper__module swiper-container" data-options='{"slidesPerView":3,"slidesPerColumn":1,"breakpoints":{"320":{"slidesPerView":1,"spaceBetween":10},"640":{"slidesPerView":1,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":30},"1024":{"slidesPerView":3,"spaceBetween":40}}}'>
+									<div class="swiper-wrapper">
+										
+										<!-- post -->
+										<div class="post">
+											<div class="post__media"><img src="assets/img/blog/1.jpg" alt=""/></div>
+											<div>
+												<div class="post__meta"><span class="author">suah</span><span class="cat"><i class='fa fa-calendar-alt'></i> 날짜</span></div>
+												<h2 class="post__title"><a href="#">안녕하세요</a></h2>
+												<p class="post__text">구현 예정 기능입니다 😊</p>
+											</div>
+										</div><!-- End / post -->
+										
+										<!-- post -->
+										<div class="post">
+											<div class="post__media"><img src="assets/img/blog/2.jpg" alt=""/></div>
+											<div>
+												<div class="post__meta"><span class="author">지나가던이</span><span class="cat"><i class='fa fa-calendar-alt'></i> Feb 25, 2021</span></div>
+												<h2 class="post__title"><a href="#">안녕하세요</a></h2>
+												<p class="post__text">반갑습니다</p>
+											</div>
+										</div><!-- End / post -->
+
+										<!-- post -->
+										
+									</div>
+									<div class="swiper-pagination-custom"></div>
+								</div><!-- End / swiper__module swiper-container -->
+								
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- End / Section -->
 
 				
 				<!-- Section -->
-				<section class="awe-section" id="id-6">
+				<section class="awe-section" id="id-7">
 					<div class="container">
 						
 						<!-- title -->
@@ -827,6 +1020,7 @@
 		<script type="text/javascript" src="assets/vendors/tabs/awe-tabs.js"></script>
 		<script type="text/javascript" src="assets/vendors/wow/wow.js"></script>
 		<script type="text/javascript" src="assets/vendors/jquery.appear/jquery.appear.js"></script>
+		<script type="text/javascript" src="assets/vendors/particles/particles.min.js"></script>
 		<script type="text/javascript" src="assets/vendors/waterpipe/waterpipe.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
