@@ -1,3 +1,125 @@
+$(document).ready(function(){
+    loadGuestbook();
+})
+
+function loadGuestbook() {
+    fetch("https://script.google.com/macros/s/AKfycbyLG9Y8zJ7Wa0R-m6rFhD6XIHOOxEmD9K-Etc2fd0YMp_44NeIUEC8t/exec")
+    .then((response) => response.json())
+    .then((data) => {
+        var res = data.result;
+        var wrap = $('#guestbook')
+
+        if (res === "success") {
+            gb = JSON.parse(data.data);
+            console.log("success")
+            console.log(gb);
+            let minval = Math.max(-1, gb.length - 6);
+            for (let i = gb.length - 1; i > minval; i--) {
+                const element = gb[i];
+                var htmlString = makePostBlock(element[1], new Date(element[0]), element[2], i);
+                wrap.append(htmlString)
+               
+            }
+        } else {
+            wrap.append(makePostBlock("Kang Suah", new Date(), "서버 문제로 방명록을 로드할 수 없습니다.", 1));
+        }
+        swipeChange();
+    });
+}
+
+function makePostBlock(n, d, m, i) {
+    var htmlString = ` <div class="post">
+                <div class="post__media"><img src="https://source.unsplash.com/random/600x400?sig=${i}" alt=""/></div>
+                <div>
+                    <div class="post__meta"><span class="author">${n}</span><span class="cat"><i class='fa fa-calendar-alt'></i> ${d.toDateString()}</span></div>
+                    <p class="post__text">${m}</p>
+                </div>
+            </div>`;
+    return htmlString;
+}
+
+function swipeChange() {
+	$('.swiper__module').each(function () {
+		var self = $(this),
+			    wrapper = $('.swiper-wrapper', self),
+			    optData = eval('(' + self.attr('data-options') + ')'),
+			    optDefault = {
+			paginationClickable: true,
+			pagination: self.find('.swiper-pagination-custom'),
+			nextButton: self.find('.swiper-button-next-custom'),
+			prevButton: self.find('.swiper-button-prev-custom'),
+			spaceBetween: 30
+		},
+			    options = $.extend(optDefault, optData);
+		wrapper.children().wrap('<div class="swiper-slide"></div>');
+		var swiper = new Swiper(self, options);
+
+		function thumbnails(selector) {
+
+			if (selector.length > 0) {
+				var wrapperThumbs = selector.children('.swiper-wrapper'),
+					    optDataThumbs = eval('(' + selector.attr('data-options') + ')'),
+					    optDefaultThumbs = {
+					spaceBetween: 10,
+					centeredSlides: true,
+					slidesPerView: 3,
+					touchRatio: 0.3,
+					slideToClickedSlide: true,
+					pagination: selector.find('.swiper-pagination-custom'),
+					nextButton: selector.find('.swiper-button-next-custom'),
+					prevButton: selector.find('.swiper-button-prev-custom')
+				},
+					    optionsThumbs = $.extend(optDefaultThumbs, optDataThumbs);
+				wrapperThumbs.children().wrap('<div class="swiper-slide"></div>');
+				var swiperThumbs = new Swiper(selector, optionsThumbs);
+				swiper.params.control = swiperThumbs;
+				swiperThumbs.params.control = swiper;
+			}
+		}
+		thumbnails(self.next('.swiper-thumbnails__module'));
+	});
+}
+
+function sendGuestbook() {
+    let name = document.querySelector("#gName");
+    let message = document.querySelector("#gMessage");
+
+    if (!name.value || !message.value) {
+        alert("이름 혹은 내용을 확인해주세요.");
+        return;
+    }
+
+    var data = {
+        name: name.value,
+        message: message.value
+    }
+
+    var encoded = encode(data);
+    document.getElementById("lds").style.display = "block";
+    fetch("https://script.google.com/macros/s/AKfycbyLG9Y8zJ7Wa0R-m6rFhD6XIHOOxEmD9K-Etc2fd0YMp_44NeIUEC8t/exec", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: encoded
+    }).then((response) => response.json())
+    .then((data) => {
+        var res = data.result;
+        if (res === "success") {
+            var wrap = $('#guestbook')
+            wrap.prepend(makePostBlock(name.value, new Date(), message.value, Math.floor(Math.random() * 100)));
+            swipeChange();
+            name.value = "";
+            message.value = "";
+            
+            document.getElementById("lds").style.display = "none";
+        } else {
+            alert("서버의 문제로 방명록을 작성하지 못했습니다.");
+            document.getElementById("lds").style.display = "none";
+        }
+    });
+}
+
 // mail
 function sendEmail() {
     let name = document.querySelector("#sName");
@@ -19,9 +141,7 @@ function sendEmail() {
         email: email.value,
     };
 
-    var encoded = Object.keys(data).map(function (k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-    }).join('&');
+    var encoded = encode(data);
 
     data.formDataNameOrder = '["name","message","email"]';
 
@@ -46,6 +166,10 @@ function sendEmail() {
             document.getElementById("lds").style.display = "none";
         }
     });
+}
+
+function encode(data) {
+    return Object.keys(data).map(function (k) { return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]); }).join('&');
 }
 
 function checkEmail(str) {
